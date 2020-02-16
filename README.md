@@ -6,7 +6,7 @@
 
 **1. Download the Makefile**
 
-MacOS:
+MacOS & Linux:
 
 ```sh
 curl -Lo deno.mk https://raw.githubusercontent.com/MarkTiedemann/deno.mk/master/deno.mk
@@ -46,7 +46,7 @@ clean:
 
 **3. Test your Makefile**
 
-MacOS:
+MacOS & Linux:
 
 ```
 $ make

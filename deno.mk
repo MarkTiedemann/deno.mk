@@ -38,10 +38,11 @@ else
 
 DENO_DIR := $(DENO_INSTALL)/deno-$(DENO_VERSION)
 DENO_BIN := $(DENO_DIR)/bin/deno
+OS := $(if $(findstring Darwin,$(shell uname -s)),osx,linux)
 
 $(DENO_BIN):
 	mkdir -p $(DENO_DIR)/bin
-	curl -Lo $(DENO_BIN).gz https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_osx_x64.gz
+	curl -Lo $(DENO_BIN).gz https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_$(OS)_x64.gz
 	gunzip $(DENO_BIN).gz
 	chmod +x $(DENO_BIN)
 
