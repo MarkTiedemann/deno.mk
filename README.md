@@ -1,6 +1,6 @@
 # deno.mk
 
-**Cross-plattform Makefile for installing and running [Deno](https://deno.land/).**
+**Cross-platform Makefile for installing and running [Deno](https://deno.land/).**
 
 
 ## Why should I use this?
