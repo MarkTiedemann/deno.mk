@@ -1,4 +1,5 @@
 @echo off
+:: Bootstrap Make since it's not installed by default on Windows
 if not exist third_party (
 	echo mkdir third_party
 	mkdir third_party
