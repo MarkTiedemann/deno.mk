@@ -46,7 +46,7 @@ $(DENO_DIR)/bin:
 	mkdir -p $(DENO_DIR)/bin
 
 $(DENO_BIN): | $(DENO_DIR)/bin
-	curl -Lo $(DENO_BIN).gz https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_$(OS)_x64.gz
+	curl -Lo $(DENO_BIN).gz -C - https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_$(OS)_x64.gz
 	gunzip -f $(DENO_BIN).gz
 	chmod +x $(DENO_BIN)
 
