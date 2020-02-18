@@ -27,7 +27,7 @@ $(DENO_BIN): | $(DENO_DIR)\bin
 	del /q $(DENO_ZIP)
 
 define deno
-	cmd /V /C "set DENO_DIR=$(DENO_DIR)& $(DENO_BIN) $(1)"
+	cmd /C "set DENO_DIR=$(DENO_DIR)& $(DENO_BIN) $(1)"
 endef
 
 define deno_clean

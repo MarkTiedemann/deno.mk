@@ -101,7 +101,7 @@ mkdir third_party\deno-0.33.0\bin
 powershell -c "Invoke-WebRequest -OutFile third_party\deno-0.33.0\bin\deno.zip -Uri https://github.com/denoland/deno/releases/download/v0.33.0/deno_win_x64.zip"
 powershell -c "Expand-Archive -Path third_party\deno-0.33.0\bin\deno.zip -DestinationPath third_party\deno-0.33.0\bin"
 del /q third_party\deno-0.33.0\bin\deno.zip
-cmd /V /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+cmd /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
 Download https://deno.land/std/examples/welcome.ts
 Compile https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
@@ -110,7 +110,7 @@ Welcome to Deno 🦕
 ```batch
 > make
 third_party\make-4.2.exe
-cmd /V /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+cmd /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
 Welcome to Deno 🦕
 ```
 
