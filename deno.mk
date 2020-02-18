@@ -18,8 +18,10 @@ DENO_DIR := $(DENO_INSTALL)\deno-$(DENO_VERSION)
 DENO_BIN := $(DENO_DIR)\bin\deno.exe
 DENO_ZIP := $(DENO_DIR)\bin\deno.zip
 
-$(DENO_BIN):
+$(DENO_DIR)\bin:
 	mkdir $(DENO_DIR)\bin
+
+$(DENO_BIN): | $(DENO_DIR)\bin
 	powershell -c "Invoke-WebRequest -OutFile $(DENO_ZIP) -Uri https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_win_x64.zip"
 	powershell -c "Expand-Archive -Path $(DENO_ZIP) -DestinationPath $(DENO_DIR)\bin"
 	del /q $(DENO_ZIP)
@@ -40,8 +42,10 @@ DENO_DIR := $(DENO_INSTALL)/deno-$(DENO_VERSION)
 DENO_BIN := $(DENO_DIR)/bin/deno
 OS := $(if $(findstring Darwin,$(shell uname -s)),osx,linux)
 
-$(DENO_BIN):
+$(DENO_DIR)/bin:
 	mkdir -p $(DENO_DIR)/bin
+
+$(DENO_BIN): | $(DENO_DIR)/bin
 	curl -Lo $(DENO_BIN).gz https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno_$(OS)_x64.gz
 	gunzip $(DENO_BIN).gz
 	chmod +x $(DENO_BIN)
