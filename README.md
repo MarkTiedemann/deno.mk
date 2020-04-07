@@ -39,7 +39,7 @@ How to use the Makefile:
   - To uninstall Deno, call the `deno_clean` function.
 
 ```Makefile
-DENO_VERSION := 0.33.0
+DENO_VERSION := 0.39.0
 DENO_INSTALL := third_party
 include deno.mk
 
@@ -105,11 +105,11 @@ Windows:
 mkdir third_party
 powershell -c "Invoke-WebRequest -OutFile third_party\make-4.2.exe -Uri https://raw.githubusercontent.com/MarkTiedemann/make-for-windows/master/make-4.2/64/make.exe"
 third_party\make-4.2.exe
-mkdir third_party\deno-0.33.0\bin
-powershell -c "Invoke-WebRequest -OutFile third_party\deno-0.33.0\bin\deno.zip -Uri https://github.com/denoland/deno/releases/download/v0.33.0/deno_win_x64.zip"
-powershell -c "Expand-Archive -Path third_party\deno-0.33.0\bin\deno.zip -DestinationPath third_party\deno-0.33.0\bin"
-del /q third_party\deno-0.33.0\bin\deno.zip
-cmd /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+mkdir third_party\deno-0.39.0\bin
+powershell -c "Invoke-WebRequest -OutFile third_party\deno-0.39.0\bin\deno.zip -Uri https://github.com/denoland/deno/releases/download/v0.39.0/deno-x86_64-pc-windows-msvc.zip"
+powershell -c "Expand-Archive -Path third_party\deno-0.39.0\bin\deno.zip -DestinationPath third_party\deno-0.39.0\bin"
+del /q third_party\deno-0.39.0\bin\deno.zip
+cmd /c "set DENO_DIR=third_party\deno-0.39.0& third_party\deno-0.39.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
 Download https://deno.land/std/examples/welcome.ts
 Compile https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
@@ -118,14 +118,14 @@ Welcome to Deno 🦕
 ```batch
 > make
 third_party\make-4.2.exe
-cmd /C "set DENO_DIR=third_party\deno-0.33.0& third_party\deno-0.33.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+cmd /c "set DENO_DIR=third_party\deno-0.39.0& third_party\deno-0.39.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
 Welcome to Deno 🦕
 ```
 
 ```batch
 > make clean
 third_party\make-4.2.exe clean
-rmdir /q /s third_party\deno-0.33.0
+rmdir /q /s third_party\deno-0.39.0
 ```
 
 ## License
