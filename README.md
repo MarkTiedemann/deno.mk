@@ -2,7 +2,6 @@
 
 **Cross-platform Makefile for installing and running [Deno](https://deno.land/).**
 
-
 ## Why should I use this?
 
 - This Makefile works on MacOS, Linux, and Windows out of the box. This makes your Deno project easy to contribute to for people with different operating systems. For example, as a Linux user, you don't need to know how to unzip files or set environment variables on Windows. This Makefile handles all the cross-platform details and pitfalls for you and your contributors.
@@ -58,15 +57,18 @@ MacOS & Linux:
 
 ```
 $ make
-mkdir -p third_party/deno-0.33.0/bin
-curl -Lo third_party/deno-0.33.0/bin/deno.gz https://github.com/denoland/deno/releases/download/v0.33.0/deno_osx_x64.gz
+mkdir -p third_party/deno-0.39.0/bin
+curl -Lo third_party/deno-0.39.0/bin/deno.zip -C - https://github.com/denoland/deno/releases/download/v0.39.0/deno-x86_64-apple-darwin.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   606  100   606    0     0   1607      0 --:--:-- --:--:-- --:--:--  1607
-100 12.9M  100 12.9M    0     0  3577k      0  0:00:03  0:00:03 --:--:-- 4202k
-gunzip third_party/deno-0.33.0/bin/deno.gz
-chmod +x third_party/deno-0.33.0/bin/deno
-DENO_DIR=third_party/deno-0.33.0 third_party/deno-0.33.0/bin/deno https://deno.land/std/examples/welcome.ts
+100   619  100   619    0     0   1294      0 --:--:-- --:--:-- --:--:--  1292
+100 15.5M  100 15.5M    0     0   646k      0  0:00:24  0:00:24 --:--:-- 1150k
+unzip -od third_party/deno-0.39.0/bin third_party/deno-0.39.0/bin/deno.zip
+Archive:  third_party/deno-0.39.0/bin/deno.zip
+  inflating: third_party/deno-0.39.0/bin/deno  
+rm third_party/deno-0.39.0/bin/deno.zip
+chmod +x third_party/deno-0.39.0/bin/deno
+DENO_DIR=third_party/deno-0.39.0 third_party/deno-0.39.0/bin/deno https://deno.land/std/examples/welcome.ts
 Download https://deno.land/std/examples/welcome.ts
 Compile https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
@@ -74,7 +76,7 @@ Welcome to Deno 🦕
 
 ```
 $ make
-DENO_DIR=third_party/deno-0.33.0 third_party/deno-0.33.0/bin/deno https://deno.land/std/examples/welcome.ts
+DENO_DIR=third_party/deno-0.39.0 third_party/deno-0.39.0/bin/deno https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
 ```
 
@@ -84,7 +86,7 @@ $ tree
 ├── deno.mk
 ├── Makefile
 └── third_party
-    └── deno-0.33.0
+    └── deno-0.39.0
         ├── bin
         │   └── deno
         ├── deps
@@ -95,7 +97,7 @@ $ tree
 
 ```
 $ make clean
-rm -rf third_party/deno-0.33.0
+rm -rf third_party/deno-0.39.0
 ```
 
 Windows:
