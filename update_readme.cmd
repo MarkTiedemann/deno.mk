@@ -4,7 +4,7 @@ if exist third_party (
 	exit /b 1
 )
 if not exist tmp (
-    echo md tmp
+	echo md tmp
 	md tmp
 )
 

@@ -10,4 +10,5 @@ all: $(DENO_BIN)
 
 .PHONY: update_readme
 update_readme: $(DENO_BIN)
+	$(call deno,fmt update_readme.ts)
 	$(call deno,--allow-all update_readme.ts)
