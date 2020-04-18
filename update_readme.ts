@@ -14,10 +14,10 @@ ${example.split("# end-example")[0].trim()}
 \`\`\`
 `);
   // Replace OS-specific example output
-  let os = Deno.build.os;
-  let id = os === "win" ? "windows" : "macos-linux";
-  let shell = os === "win" ? "batch" : "";
-  let command = os === "win" ? "> make" : "$ make";
+  let isWin = Deno.build.os === "win";
+  let id = isWin ? "windows" : "macos-linux";
+  let shell = isWin ? "batch" : "";
+  let command = isWin ? "> make" : "$ make";
   readme = replace(readme, `<!--begin-${id}-->`, `<!--end-${id}-->`, `
 \`\`\`${shell}
 ${command}
