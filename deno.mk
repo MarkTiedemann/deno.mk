@@ -42,7 +42,7 @@ $(DENO_DIR)/bin:
 
 $(DENO_BIN): | $(DENO_DIR)/bin
 	curl -Lo $(DENO_BIN).zip -C - https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-$(if $(findstring Darwin,$(shell uname -s)),apple-darwin,unknown-linux-gnu).zip
-	unzip -od $(DENO_DIR)/bin $(DENO_BIN).zip
+	unzip -qod $(DENO_DIR)/bin $(DENO_BIN).zip
 	rm $(DENO_BIN).zip
 	chmod +x $(DENO_BIN)
 
