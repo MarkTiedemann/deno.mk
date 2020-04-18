@@ -86,11 +86,7 @@ $ tree
 ├── deno.mk
 ├── Makefile
 └── third_party
-<<<<<<< HEAD
     └── deno-$version
-=======
-    └── deno-0.39.0
->>>>>>> c1b324193c74f616419b89a6bf4072f731924d80
         ├── bin
         │   └── deno
         ├── deps
@@ -99,14 +95,6 @@ $ tree
             └── ...
 ```
 
-<<<<<<< HEAD
-=======
-```
-$ make clean
-rm -rf third_party/deno-0.39.0
-```
-
->>>>>>> c1b324193c74f616419b89a6bf4072f731924d80
 Windows:
 
 <!--begin-windows-->
