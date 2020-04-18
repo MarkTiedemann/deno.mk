@@ -1,4 +1,4 @@
-DENO_VERSION := 0.39.0
+DENO_VERSION := 0.41.0
 DENO_INSTALL := third_party
 include deno.mk
 
@@ -6,6 +6,8 @@ include deno.mk
 all: $(DENO_BIN)
 	$(call deno,https://deno.land/std/examples/welcome.ts)
 
-.PHONY: clean
-clean:
-	$(call deno_clean)
+# end-example
+
+.PHONY: update_readme
+update_readme: $(DENO_BIN)
+	$(call deno,--allow-all update_readme.ts)
