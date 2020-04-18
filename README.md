@@ -56,15 +56,18 @@ MacOS & Linux:
 <!--begin-macos-linux-->
 ```
 $ make
-mkdir -p third_party/deno-0.33.0/bin
-curl -Lo third_party/deno-0.33.0/bin/deno.gz https://github.com/denoland/deno/releases/download/v0.33.0/deno_osx_x64.gz
+mkdir -p third_party/deno-0.39.0/bin
+curl -Lo third_party/deno-0.39.0/bin/deno.zip -C - https://github.com/denoland/deno/releases/download/v0.39.0/deno-x86_64-apple-darwin.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   606  100   606    0     0   1607      0 --:--:-- --:--:-- --:--:--  1607
-100 12.9M  100 12.9M    0     0  3577k      0  0:00:03  0:00:03 --:--:-- 4202k
-gunzip third_party/deno-0.33.0/bin/deno.gz
-chmod +x third_party/deno-0.33.0/bin/deno
-DENO_DIR=third_party/deno-0.33.0 third_party/deno-0.33.0/bin/deno https://deno.land/std/examples/welcome.ts
+100   619  100   619    0     0   1294      0 --:--:-- --:--:-- --:--:--  1292
+100 15.5M  100 15.5M    0     0   646k      0  0:00:24  0:00:24 --:--:-- 1150k
+unzip -od third_party/deno-0.39.0/bin third_party/deno-0.39.0/bin/deno.zip
+Archive:  third_party/deno-0.39.0/bin/deno.zip
+  inflating: third_party/deno-0.39.0/bin/deno  
+rm third_party/deno-0.39.0/bin/deno.zip
+chmod +x third_party/deno-0.39.0/bin/deno
+DENO_DIR=third_party/deno-0.39.0 third_party/deno-0.39.0/bin/deno https://deno.land/std/examples/welcome.ts
 Download https://deno.land/std/examples/welcome.ts
 Compile https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
@@ -72,7 +75,7 @@ Welcome to Deno 🦕
 
 ```
 $ make
-DENO_DIR=third_party/deno-0.33.0 third_party/deno-0.33.0/bin/deno https://deno.land/std/examples/welcome.ts
+DENO_DIR=third_party/deno-0.39.0 third_party/deno-0.39.0/bin/deno https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
 ```
 <!--end-macos-linux-->
@@ -83,7 +86,11 @@ $ tree
 ├── deno.mk
 ├── Makefile
 └── third_party
+<<<<<<< HEAD
     └── deno-$version
+=======
+    └── deno-0.39.0
+>>>>>>> c1b324193c74f616419b89a6bf4072f731924d80
         ├── bin
         │   └── deno
         ├── deps
@@ -92,6 +99,14 @@ $ tree
             └── ...
 ```
 
+<<<<<<< HEAD
+=======
+```
+$ make clean
+rm -rf third_party/deno-0.39.0
+```
+
+>>>>>>> c1b324193c74f616419b89a6bf4072f731924d80
 Windows:
 
 <!--begin-windows-->
