@@ -15,14 +15,12 @@ ifeq ($(OS),Windows_NT)
 SHELL := cmd.exe
 
 DENO_DIR := $(DENO_INSTALL)\deno-$(DENO_VERSION)
-DENO_BIN := $(DENO_DIR)\bin\deno.exe
 DENO_ZIP := $(DENO_DIR)\bin\deno.zip
+DENO_BIN := $(DENO_DIR)\bin\deno.exe
 
-$(DENO_DIR)\bin:
+$(DENO_BIN):
 	md $(DENO_DIR)\bin
-
-$(DENO_BIN): | $(DENO_DIR)\bin
-	powershell -c "Invoke-WebRequest -OutFile $(DENO_ZIP) -Uri https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-pc-windows-msvc.zip"
+	curl -Lo $(DENO_ZIP) https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-pc-windows-msvc.zip
 	powershell -c "Expand-Archive -Path $(DENO_ZIP) -DestinationPath $(DENO_DIR)\bin"
 	del /q $(DENO_ZIP)
 
@@ -37,12 +35,10 @@ else
 DENO_DIR := $(DENO_INSTALL)/deno-$(DENO_VERSION)
 DENO_BIN := $(DENO_DIR)/bin/deno
 
-$(DENO_DIR)/bin:
+$(DENO_BIN):
 	mkdir -p $(DENO_DIR)/bin
-
-$(DENO_BIN): | $(DENO_DIR)/bin
-	curl -Lo $(DENO_BIN).zip -C - https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-$(if $(findstring Darwin,$(shell uname -s)),apple-darwin,unknown-linux-gnu).zip
-	unzip -qod $(DENO_DIR)/bin $(DENO_BIN).zip
+	curl -Lo $(DENO_BIN).zip https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-$(if $(findstring Darwin,$(shell uname -s)),apple-darwin,unknown-linux-gnu).zip
+	unzip -d $(DENO_DIR)/bin $(DENO_BIN).zip
 	rm $(DENO_BIN).zip
 	chmod +x $(DENO_BIN)
 

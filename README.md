@@ -13,16 +13,8 @@
 
 **1. Download the Makefile**
 
-MacOS & Linux:
-
 ```sh
-curl -Lo deno.mk https://raw.githubusercontent.com/MarkTiedemann/deno.mk/master/deno.mk
-```
-
-Windows:
-
-```batch
-powershell -c "Invoke-WebRequest -OutFile deno.mk -Uri https://raw.githubusercontent.com/MarkTiedemann/deno.mk/master/deno.mk"
+curl -o deno.mk https://raw.githubusercontent.com/MarkTiedemann/deno.mk/master/deno.mk
 ```
 
 **2. Include it in your Makefile**
@@ -38,13 +30,13 @@ How to use the Makefile:
 
 <!--begin-example-->
 ```Makefile
-DENO_VERSION := 0.41.0
+DENO_VERSION := 1.0.0-rc2
 DENO_INSTALL := third_party
 include deno.mk
 
 .PHONY: all
 all: $(DENO_BIN)
-	$(call deno,https://deno.land/std/examples/welcome.ts)
+	$(call deno,run https://deno.land/std/examples/welcome.ts)
 ```
 <!--end-example-->
 
@@ -93,14 +85,11 @@ Windows:
 <!--begin-windows-->
 ```batch
 > make
-md third_party
-powershell -c "Invoke-WebRequest -OutFile third_party\make-4.2.exe -Uri https://raw.githubusercontent.com/MarkTiedemann/make-for-windows/master/make-4.2/64/make.exe"
-third_party\make-4.2.exe 
-md third_party\deno-0.41.0\bin
-powershell -c "Invoke-WebRequest -OutFile third_party\deno-0.41.0\bin\deno.zip -Uri https://github.com/denoland/deno/releases/download/v0.41.0/deno-x86_64-pc-windows-msvc.zip"
-powershell -c "Expand-Archive -Path third_party\deno-0.41.0\bin\deno.zip -DestinationPath third_party\deno-0.41.0\bin"
-del /q third_party\deno-0.41.0\bin\deno.zip
-cmd /c "set DENO_DIR=third_party\deno-0.41.0& third_party\deno-0.41.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+md third_party\deno-1.0.0-rc2\bin
+curl -Lo third_party\deno-1.0.0-rc2\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.0.0-rc2/deno-x86_64-pc-windows-msvc.zip
+powershell -c "Expand-Archive -Path third_party\deno-1.0.0-rc2\bin\deno.zip -DestinationPath third_party\deno-1.0.0-rc2\bin"
+del /q third_party\deno-1.0.0-rc2\bin\deno.zip
+cmd /c "set DENO_DIR=third_party\deno-1.0.0-rc2& third_party\deno-1.0.0-rc2\bin\deno.exe run https://deno.land/std/examples/welcome.ts"
 Download https://deno.land/std/examples/welcome.ts
 Compile https://deno.land/std/examples/welcome.ts
 Welcome to Deno 🦕
@@ -108,8 +97,7 @@ Welcome to Deno 🦕
 
 ```batch
 > make
-third_party\make-4.2.exe 
-cmd /c "set DENO_DIR=third_party\deno-0.41.0& third_party\deno-0.41.0\bin\deno.exe https://deno.land/std/examples/welcome.ts"
+cmd /c "set DENO_DIR=third_party\deno-1.0.0-rc2& third_party\deno-1.0.0-rc2\bin\deno.exe run https://deno.land/std/examples/welcome.ts"
 Welcome to Deno 🦕
 ```
 <!--end-windows-->

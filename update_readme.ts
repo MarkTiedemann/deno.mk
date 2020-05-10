@@ -8,17 +8,26 @@ async function main(): Promise<void> {
     "tmp/second_make.txt",
   );
   // Replace example code
-  readme = replace(readme, "<!--begin-example-->", "<!--end-example-->", `
+  readme = replace(
+    readme,
+    "<!--begin-example-->",
+    "<!--end-example-->",
+    `
 \`\`\`Makefile
 ${example.split("# end-example")[0].trim()}
 \`\`\`
-`);
+`,
+  );
   // Replace OS-specific example output
-  let isWin = Deno.build.os === "win";
+  let isWin = Deno.build.os === "windows";
   let id = isWin ? "windows" : "macos-linux";
   let shell = isWin ? "batch" : "";
   let command = isWin ? "> make" : "$ make";
-  readme = replace(readme, `<!--begin-${id}-->`, `<!--end-${id}-->`, `
+  readme = replace(
+    readme,
+    `<!--begin-${id}-->`,
+    `<!--end-${id}-->`,
+    `
 \`\`\`${shell}
 ${command}
 ${first_make.trim()}
@@ -28,7 +37,8 @@ ${first_make.trim()}
 ${command}
 ${second_make.trim()}
 \`\`\`
-`);
+`,
+  );
   return writeFile("README.md", readme);
 }
 
