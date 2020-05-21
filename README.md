@@ -30,13 +30,13 @@ How to use the Makefile:
 
 <!--begin-example-->
 ```Makefile
-DENO_VERSION := 1.0.0-rc2
+DENO_VERSION := 1.0.1
 DENO_INSTALL := third_party
 include deno.mk
 
 .PHONY: all
 all: $(DENO_BIN)
-	$(call deno,run https://deno.land/std/examples/welcome.ts)
+	$(call deno,run https://marksweb.site/welcome.ts)
 ```
 <!--end-example-->
 
@@ -85,19 +85,19 @@ Windows:
 <!--begin-windows-->
 ```batch
 > make
-md third_party\deno-1.0.0-rc2\bin
-curl -Lo third_party\deno-1.0.0-rc2\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.0.0-rc2/deno-x86_64-pc-windows-msvc.zip
-powershell -c "Expand-Archive -Path third_party\deno-1.0.0-rc2\bin\deno.zip -DestinationPath third_party\deno-1.0.0-rc2\bin"
-del /q third_party\deno-1.0.0-rc2\bin\deno.zip
-cmd /c "set DENO_DIR=third_party\deno-1.0.0-rc2& third_party\deno-1.0.0-rc2\bin\deno.exe run https://deno.land/std/examples/welcome.ts"
-Download https://deno.land/std/examples/welcome.ts
-Compile https://deno.land/std/examples/welcome.ts
+md third_party\deno-1.0.1\bin
+curl -Lo third_party\deno-1.0.1\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.0.1/deno-x86_64-pc-windows-msvc.zip
+powershell -c "Expand-Archive -Path third_party\deno-1.0.1\bin\deno.zip -DestinationPath third_party\deno-1.0.1\bin"
+del /q third_party\deno-1.0.1\bin\deno.zip
+cmd /c "set DENO_DIR=third_party\deno-1.0.1& third_party\deno-1.0.1\bin\deno.exe run https://marksweb.site/welcome.ts"
+Download https://marksweb.site/welcome.ts
+Compile https://marksweb.site/welcome.ts
 Welcome to Deno 🦕
 ```
 
 ```batch
 > make
-cmd /c "set DENO_DIR=third_party\deno-1.0.0-rc2& third_party\deno-1.0.0-rc2\bin\deno.exe run https://deno.land/std/examples/welcome.ts"
+cmd /c "set DENO_DIR=third_party\deno-1.0.1& third_party\deno-1.0.1\bin\deno.exe run https://marksweb.site/welcome.ts"
 Welcome to Deno 🦕
 ```
 <!--end-windows-->

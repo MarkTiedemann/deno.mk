@@ -1,10 +1,10 @@
-DENO_VERSION := 1.0.0-rc2
+DENO_VERSION := 1.0.1
 DENO_INSTALL := third_party
 include deno.mk
 
 .PHONY: all
 all: $(DENO_BIN)
-	$(call deno,run https://deno.land/std/examples/welcome.ts)
+	$(call deno,run https://marksweb.site/welcome.ts)
 
 # end-example
 
