@@ -30,7 +30,7 @@ How to use the Makefile:
 
 <!--begin-example-->
 ```Makefile
-DENO_VERSION := 1.0.2
+DENO_VERSION := 1.0.3
 DENO_INSTALL := third_party
 include deno.mk
 
@@ -85,11 +85,11 @@ Windows:
 <!--begin-windows-->
 ```batch
 > make
-md third_party\deno-1.0.2\bin
-curl -Lo third_party\deno-1.0.2\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.0.2/deno-x86_64-pc-windows-msvc.zip
-powershell -c "Expand-Archive -Path third_party\deno-1.0.2\bin\deno.zip -DestinationPath third_party\deno-1.0.2\bin"
-del /q third_party\deno-1.0.2\bin\deno.zip
-cmd /c "set DENO_DIR=third_party\deno-1.0.2& third_party\deno-1.0.2\bin\deno.exe run https://marksweb.site/welcome.ts"
+md third_party\deno-1.0.3\bin
+curl -Lo third_party\deno-1.0.3\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.0.3/deno-x86_64-pc-windows-msvc.zip
+powershell -c "Expand-Archive -Path third_party\deno-1.0.3\bin\deno.zip -DestinationPath third_party\deno-1.0.3\bin"
+del /q third_party\deno-1.0.3\bin\deno.zip
+cmd /c "set DENO_DIR=third_party\deno-1.0.3& third_party\deno-1.0.3\bin\deno.exe run https://marksweb.site/welcome.ts"
 Download https://marksweb.site/welcome.ts
 Compile https://marksweb.site/welcome.ts
 Welcome to Deno!
@@ -97,7 +97,7 @@ Welcome to Deno!
 
 ```batch
 > make
-cmd /c "set DENO_DIR=third_party\deno-1.0.2& third_party\deno-1.0.2\bin\deno.exe run https://marksweb.site/welcome.ts"
+cmd /c "set DENO_DIR=third_party\deno-1.0.3& third_party\deno-1.0.3\bin\deno.exe run https://marksweb.site/welcome.ts"
 Welcome to Deno!
 ```
 <!--end-windows-->
