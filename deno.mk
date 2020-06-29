@@ -21,7 +21,7 @@ DENO_BIN := $(DENO_DIR)\bin\deno.exe
 $(DENO_BIN):
 	md $(DENO_DIR)\bin
 	curl -Lo $(DENO_ZIP) https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-pc-windows-msvc.zip
-	powershell Expand-Archive $(DENO_ZIP) -Destination $(DENO_DIR)\bin
+	tar xf $(DENO_ZIP) -C $(DENO_DIR)\bin
 	del /q $(DENO_ZIP)
 
 define deno

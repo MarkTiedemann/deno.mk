@@ -87,7 +87,7 @@ Windows:
 > make
 md third_party\deno-1.1.2\bin
 curl -Lo third_party\deno-1.1.2\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.1.2/deno-x86_64-pc-windows-msvc.zip
-powershell Expand-Archive third_party\deno-1.1.2\bin\deno.zip -Destination third_party\deno-1.1.2\bin
+tar xf third_party\deno-1.1.2\bin\deno.zip -C third_party\deno-1.1.2\bin
 del /q third_party\deno-1.1.2\bin\deno.zip
 cmd /c "set DENO_DIR=third_party\deno-1.1.2& third_party\deno-1.1.2\bin\deno.exe run https://marksweb.site/welcome.ts"
 Download https://marksweb.site/welcome.ts
