@@ -47,12 +47,12 @@ MacOS & Linux:
 <!--begin-macos-linux-->
 ```
 $ make
-mkdir -p third_party/deno-1.1.2/bin
-curl -Lo third_party/deno-1.1.2/bin/deno.zip https://github.com/denoland/deno/releases/download/v1.1.2/deno-x86_64-apple-darwin.zip
-unzip -d third_party/deno-1.1.2/bin third_party/deno-1.1.2/bin/deno.zip 
-rm third_party/deno-1.1.2/bin/deno.zip
-chmod +x third_party/deno-1.1.2/bin/deno
-DENO_DIR=third_party/deno-1.1.2 third_party/deno-1.1.2/bin/deno run https://marksweb.site/welcome.ts
+mkdir -p third_party/deno-1.2.1/bin
+curl -Lo third_party/deno-1.2.1/bin/deno.zip https://github.com/denoland/deno/releases/download/v1.2.1/deno-x86_64-apple-darwin.zip
+tar xf third_party/deno-1.2.1/bin/deno.zip -C third_party/deno-1.2.1/bin
+rm third_party/deno-1.2.1/bin/deno.zip
+chmod +x third_party/deno-1.2.1/bin/deno
+DENO_DIR=third_party/deno-1.2.1 third_party/deno-1.2.1/bin/deno run https://marksweb.site/welcome.ts
 Download https://marksweb.site/welcome.ts
 Check https://marksweb.site/welcome.ts
 Welcome to Deno 🦕
@@ -60,7 +60,7 @@ Welcome to Deno 🦕
 
 ```
 $ make
-DENO_DIR=third_party/deno-1.1.2 third_party/deno-1.1.2/bin/deno run https://marksweb.site/welcome.ts
+DENO_DIR=third_party/deno-1.2.1 third_party/deno-1.2.1/bin/deno run https://marksweb.site/welcome.ts
 Welcome to Deno 🦕
 ```
 <!--end-macos-linux-->

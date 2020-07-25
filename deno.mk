@@ -15,8 +15,8 @@ ifeq ($(OS),Windows_NT)
 SHELL := cmd.exe
 
 DENO_DIR := $(DENO_INSTALL)\deno-$(DENO_VERSION)
-DENO_ZIP := $(DENO_DIR)\bin\deno.zip
 DENO_BIN := $(DENO_DIR)\bin\deno.exe
+DENO_ZIP := $(DENO_DIR)\bin\deno.zip
 
 $(DENO_BIN):
 	md $(DENO_DIR)\bin
@@ -34,12 +34,13 @@ else
 
 DENO_DIR := $(DENO_INSTALL)/deno-$(DENO_VERSION)
 DENO_BIN := $(DENO_DIR)/bin/deno
+DENO_ZIP := $(DENO_BIN).zip
 
 $(DENO_BIN):
 	mkdir -p $(DENO_DIR)/bin
-	curl -Lo $(DENO_BIN).zip https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-$(if $(findstring Darwin,$(shell uname -s)),apple-darwin,unknown-linux-gnu).zip
-	unzip -d $(DENO_DIR)/bin $(DENO_BIN).zip
-	rm $(DENO_BIN).zip
+	curl -Lo $(DENO_ZIP) https://github.com/denoland/deno/releases/download/v$(DENO_VERSION)/deno-x86_64-$(if $(findstring Darwin,$(shell uname -s)),apple-darwin,unknown-linux-gnu).zip
+	tar xf $(DENO_ZIP) -C $(DENO_DIR)/bin
+	rm $(DENO_ZIP)
 	chmod +x $(DENO_BIN)
 
 define deno
