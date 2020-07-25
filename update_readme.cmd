@@ -1,8 +1,9 @@
 @echo off
 if exist third_party (
-	echo "Error: 'third_party' directory must be deleted before updating"
-	exit /b 1
+	echo rd /q /s third_party
+	rd /q /s third_party
 )
+
 if not exist tmp (
 	echo md tmp
 	md tmp

@@ -25,7 +25,7 @@ $(DENO_BIN):
 	del /q $(DENO_ZIP)
 
 define deno
-	cmd /c "set DENO_DIR=$(DENO_DIR)& $(DENO_BIN) $(1)"
+	set DENO_DIR=$(DENO_DIR)& $(DENO_BIN) $(1)
 endef
 
 # end-windows
