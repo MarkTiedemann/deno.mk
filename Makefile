@@ -1,4 +1,4 @@
-DENO_VERSION := 1.2.1
+DENO_VERSION := 1.5.1
 DENO_INSTALL := third_party
 include deno.mk
 
