@@ -12,11 +12,16 @@ DENO_INSTALL ?= .
 ifeq ($(OS),Windows_NT)
 TARGET := x86_64-pc-windows-msvc
 else
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Darwin)
+UNAME_SM := $(shell uname -sm)
+UNAME_S := $(firstword $(UNAME_SM))
+ifeq ($(UNAME_SM),Darwin x86_64)
 TARGET := x86_64-apple-darwin
-else
+else ifeq ($(UNAME_SM),Darwin arm64)
+TARGET := aarch64-apple-darwin
+else ifeq ($(UNAME_SM),Linux x86_64)
 TARGET := x86_64-unknown-linux-gnu
+else
+$(error $(UNAME_SM) is not supported)
 endif
 endif
 
@@ -35,7 +40,6 @@ $(DENO_BIN):
 	md $(DENO_DIR)\bin
 	curl -Lo $(DENO_ZIP) $(RELEASE_URL)
 	tar xf $(DENO_ZIP) -C $(DENO_DIR)\bin
-	$(DENO_BIN) -V
 	del /q $(DENO_ZIP)
 
 define deno
@@ -76,7 +80,6 @@ $(DENO_BIN):
 	$(DOWNLOAD)
 	$(UNZIP)
 	chmod +x $(DENO_BIN)
-	$(DENO_BIN) -V
 	rm $(DENO_ZIP)
 
 define deno

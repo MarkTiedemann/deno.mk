@@ -30,7 +30,7 @@ How to use the Makefile:
 
 <!--begin-example-->
 ```Makefile
-DENO_VERSION := 1.5.1
+DENO_VERSION := 1.6.0
 DENO_INSTALL := third_party
 include deno.mk
 
@@ -47,14 +47,12 @@ MacOS & Linux:
 <!--begin-macos-linux-->
 ```
 $ make
-mkdir -p third_party/deno-1.5.1/bin
-curl -Lo third_party/deno-1.5.1/bin/deno.zip https://github.com/denoland/deno/releases/download/v1.5.1/deno-x86_64-unknown-linux-gnu.zip
-unzip third_party/deno-1.5.1/bin/deno.zip -d third_party/deno-1.5.1/bin
-chmod +x third_party/deno-1.5.1/bin/deno
-third_party/deno-1.5.1/bin/deno -V
-deno 1.5.1
-rm third_party/deno-1.5.1/bin/deno.zip
-DENO_DIR=third_party/deno-1.5.1 third_party/deno-1.5.1/bin/deno run https://marksweb.site/welcome.ts
+mkdir -p third_party/deno-1.6.0/bin
+curl -Lo third_party/deno-1.6.0/bin/deno.zip https://github.com/denoland/deno/releases/download/v1.6.0/deno-x86_64-apple-darwin.zip
+tar xf third_party/deno-1.6.0/bin/deno.zip -C third_party/deno-1.6.0/bin
+chmod +x third_party/deno-1.6.0/bin/deno
+rm third_party/deno-1.6.0/bin/deno.zip
+DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
 Download https://marksweb.site/welcome.ts
 Check https://marksweb.site/welcome.ts
 Welcome to Deno 🦕
@@ -62,7 +60,7 @@ Welcome to Deno 🦕
 
 ```
 $ make
-DENO_DIR=third_party/deno-1.5.1 third_party/deno-1.5.1/bin/deno run https://marksweb.site/welcome.ts
+DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
 Welcome to Deno 🦕
 ```
 <!--end-macos-linux-->
@@ -87,13 +85,11 @@ Windows:
 <!--begin-windows-->
 ```batch
 > make
-md third_party\deno-1.5.1\bin
-curl -Lo third_party\deno-1.5.1\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.5.1/deno-x86_64-pc-windows-msvc.zip
-tar xf third_party\deno-1.5.1\bin\deno.zip -C third_party\deno-1.5.1\bin
-third_party\deno-1.5.1\bin\deno.exe -V
-deno 1.5.1
-del /q third_party\deno-1.5.1\bin\deno.zip
-set DENO_DIR=third_party\deno-1.5.1& third_party\deno-1.5.1\bin\deno.exe run https://marksweb.site/welcome.ts
+md third_party\deno-1.6.0\bin
+curl -Lo third_party\deno-1.6.0\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.6.0/deno-x86_64-pc-windows-msvc.zip
+tar xf third_party\deno-1.6.0\bin\deno.zip -C third_party\deno-1.6.0\bin
+del /q third_party\deno-1.6.0\bin\deno.zip
+set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://marksweb.site/welcome.ts
 Download https://marksweb.site/welcome.ts
 Check https://marksweb.site/welcome.ts
 Welcome to Deno!
@@ -101,7 +97,7 @@ Welcome to Deno!
 
 ```batch
 > make
-set DENO_DIR=third_party\deno-1.5.1& third_party\deno-1.5.1\bin\deno.exe run https://marksweb.site/welcome.ts
+set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://marksweb.site/welcome.ts
 Welcome to Deno!
 ```
 <!--end-windows-->
