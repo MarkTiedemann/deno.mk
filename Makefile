@@ -4,7 +4,7 @@ include deno.mk
 
 .PHONY: all
 all: $(DENO_BIN)
-	$(call deno,run https://marksweb.site/welcome.ts)
+	$(call deno,run https://deno.land/std/examples/welcome.ts)
 
 # end-example
 

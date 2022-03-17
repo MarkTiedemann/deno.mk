@@ -36,7 +36,7 @@ include deno.mk
 
 .PHONY: all
 all: $(DENO_BIN)
-	$(call deno,run https://marksweb.site/welcome.ts)
+	$(call deno,run https://deno.land/std/examples/welcome.ts)
 ```
 <!--end-example-->
 
@@ -55,13 +55,13 @@ rm third_party/deno-1.6.0/bin/deno.zip
 DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
 Download https://marksweb.site/welcome.ts
 Check https://marksweb.site/welcome.ts
-Welcome to Deno 🦕
+Welcome to Deno!
 ```
 
 ```
 $ make
 DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
-Welcome to Deno 🦕
+Welcome to Deno!
 ```
 <!--end-macos-linux-->
 
