@@ -52,15 +52,15 @@ curl -Lo third_party/deno-1.6.0/bin/deno.zip https://github.com/denoland/deno/re
 tar xf third_party/deno-1.6.0/bin/deno.zip -C third_party/deno-1.6.0/bin
 chmod +x third_party/deno-1.6.0/bin/deno
 rm third_party/deno-1.6.0/bin/deno.zip
-DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
-Download https://marksweb.site/welcome.ts
-Check https://marksweb.site/welcome.ts
+DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://deno.land/std/examples/welcome.ts
+Download https://deno.land/std/examples/welcome.ts
+Check https://deno.land/std/examples/welcome.ts
 Welcome to Deno!
 ```
 
 ```
 $ make
-DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://marksweb.site/welcome.ts
+DENO_DIR=third_party/deno-1.6.0 third_party/deno-1.6.0/bin/deno run https://deno.land/std/examples/welcome.ts
 Welcome to Deno!
 ```
 <!--end-macos-linux-->
@@ -89,15 +89,15 @@ md third_party\deno-1.6.0\bin
 curl -Lo third_party\deno-1.6.0\bin\deno.zip https://github.com/denoland/deno/releases/download/v1.6.0/deno-x86_64-pc-windows-msvc.zip
 tar xf third_party\deno-1.6.0\bin\deno.zip -C third_party\deno-1.6.0\bin
 del /q third_party\deno-1.6.0\bin\deno.zip
-set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://marksweb.site/welcome.ts
-Download https://marksweb.site/welcome.ts
-Check https://marksweb.site/welcome.ts
+set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://deno.land/std/examples/welcome.ts
+Download https://deno.land/std/examples/welcome.ts
+Check https://deno.land/std/examples/welcome.ts
 Welcome to Deno!
 ```
 
 ```batch
 > make
-set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://marksweb.site/welcome.ts
+set DENO_DIR=third_party\deno-1.6.0& third_party\deno-1.6.0\bin\deno.exe run https://deno.land/std/examples/welcome.ts
 Welcome to Deno!
 ```
 <!--end-windows-->
